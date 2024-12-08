@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Interface</title>
+    <style>
+        :root {
+            --bg-color: rgba(40, 40, 40, 0.85);
+            --text-color: #ffffff;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --button-bg: rgba(255, 255, 255, 0.9);
+            --button-text: #333333;
+            --hover-color: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/background.jpg-gRV7ypwMXTM1Xcx5rLhxECq3x27WS8.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .upload-container {
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            background: var(--bg-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-container .clear-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .search-container .clear-button:hover {
+            opacity: 1;
+        }
+
+        .file-upload {
+            margin-bottom: 2rem;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .file-upload-label:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .choose-file-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .choose-file-btn:hover {
+            background: var(--hover-color);
+            transform: translateY(-1px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .file-name {
+            margin-top: 10px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            .upload-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <div class="search-container">
+            <!-- <input type="text" placeholder="" value=""> -->
+            <button class="clear-button" aria-label="Clear search"></button>
+        </div>
+        
+        <div class="file-upload">
+            <label class="file-upload-label">
+                <div>Upload file</div>
+                <div class="choose-file-btn">Choose file</div>
+                <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx">
+                <div class="file-name" id="fileName">No file chosen</div>
+            </label>
+        </div>
+        
+        <form id="uploadForm" action="/get-started/Herb.html" method="get">
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </div>
+   
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file chosen';
+            document.getElementById('fileName').textContent = fileName;
+        });
+
+        document.querySelector('.clear-button').addEventListener('click', function() {
+            document.querySelector('.search-container input').value = '';
+        });
+    </script>
+</body>
+</html>

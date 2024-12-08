@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Classification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/background.jpg-gRV7ypwMXTM1Xcx5rLhxECq3x27WS8.jpeg") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            text-align: center;
+            padding: 40px 60px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .overlay button {
+            font-size: 1.2rem;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .overlay button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>HERBAL CLASSIFICATION</h1>
+        <button onclick="getStarted()">GET STARTED</button>
+    </div>
+
+    <script>
+        function getStarted() {
+            window.location.href = "/get-started";
+        }
+    </script> 
+</body>
+</html>
